@@ -287,3 +287,61 @@ How proxy can be configured?
                                                "Forged Browser 1.0")
 
 The example above only a demonstration of a customization, it is uncommented now, we will back to later.
+
+Instance
+--------
+
+An *instance* groups the *rules* and *services* belonging in some way together and separates the resulting groups from each other.
+
+What instance is good for?
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It makes possible the independent
+
+* modification of the elements of (for example: *rules*, *services*)
+* parameters passing to (for example: log level, thread limit)
+* control (for example start, stop, reload) of
+* monitor (for example memory usage, thread number) of
+* get statistics (for example connection information, thread rate) from
+
+each *instances*.
+
+How instance works?
+^^^^^^^^^^^^^^^^^^^
+
+An *instance* is represented as a process at the level of the operating system. In order of the list above an *instance*
+
+
+* represented as a function in configuration (see also)
+* can have separate configuration file
+* runs as a separate process, so
+
+  * can be controlled separately (see also)
+  * can be monitored separately (see also)
+  * can have separate statistical informations (see also)
+
+.. versionadded:: 3.9.2
+   The ``num-of-processes`` parameter.
+
+An instance can be run as several processes which can provide better performance on multi-core processors.
+
+How instance can be configured?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Arguments of the process can be set in the ``instances.conf`` where each line represents an *instance*. The line begins with the name of the *instance* followed by the command line arguments of the *Zorp* process and after two dashes (``--``) the argument
+of the *Zorp* controller application named ``zorpctl``.
+
+.. code-block:: bash
+
+  default_instance --verbose 3 --policy /etc/zorp/policy.py -- --num-of-processes 1
+
+
+*Zorp* *instance* represented as a function in the configuration file ``policy.py``. Any object related to the instance declared inside this function.
+
+.. code-block:: python
+
+  from Zorp.Http import *
+
+  def instance():
+    Service(name='service', proxy_class=HttpProxy)
+    Rule(dst_port=80, service='service')
