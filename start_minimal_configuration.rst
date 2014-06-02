@@ -2,32 +2,6 @@
 Minimal Configuration
 ---------------------
 
-Zorp Kernel Module
-==================
-
-*KZorp* is the kernel module of the *Zorp* application level firewall. The module makes possible to make kernel space decisions about the traffic according to the configured *Zorp* policy. It also provides some extensions to *IPTables* so that you can build your own packet filter ruleset that uses *Zorp* concepts and policy objects.
-
-Rule evaluation
----------------
-
-*Zorp* communicates the policy to *KZorp* when starting up, so inital policy decisions can be applied to certain traffic in kernel space. As the result of the decision, packets are either dropped or put back to the chain of *IPTables* where the *KZORP* target has been called.
-
-IPTables relation
------------------
-
-The *KZorp* kernel and *IPTables* modules allow using certain *Zorp* concepts in packet filter rulesets.
-
-It adds support for the following *IPTables* modules:
-
-* ``zone`` match: you can match on *Zorp* zones (defined in the *Zorp* policy) in your *IPTables* ruleset.
-
-* ``service`` match: matches on either the name or the type of the service that has been selected for the packet based on your *Zorp* policy.
-
-* ``KZORP`` target: handles DAC checks, transparent proxy redirections and generic processing of packets for PFService services (that is, *Zorp* services that process packets on the packet filter level, not in a user-space proxy).
-
-Configuration
-=============
-
 The main problem of transparent proxy firewalls is the fact that the traffic does not target the firewall itself, but a host behind the network security device. In a usual case the traffic is forwarded to the originally targeted server, but in case of a firewall the traffic must be delivered locally to the proxy, which will connect to the originally targeted server, or another according to the policy. The divertable packets should be identified somehow in the packet filter rulesets. It can be performed by the means of transparent proxy (`TProxy <https://www.kernel.org/doc/Documentation/networking/tproxy.txt>`_) kernel module of the kernel.
 
   The idea is to identify packets with the destination address matching a local socket on your box, set the packet mark to a certain value, and then match on that value using policy routing to have those packets delivered locally.
@@ -37,7 +11,7 @@ The main problem of transparent proxy firewalls is the fact that the traffic doe
 The following sections will describe the *IPTables* and policy routing rules  that are essential to make *Zorp* operable.
 
 IPTables
---------
+========
 
 At least the following *IPTables* ruleset is required for *Zorp*. Note that this ruleset is fair enough for *Zorp*, but it is inadequate for even the simplest firewall. The ruleset submits a working example of *Zorp*, so it must be extended with some other rules that are ordinary in case of a proxy firewall (for example: grant *SSH* access, handle *ICMP* messages). 
 
@@ -61,7 +35,7 @@ At least the following *IPTables* ruleset is required for *Zorp*. Note that this
   The ruleset above is IP version-independent, so it can be used both in case of ``iptables`` and ``ip6tables``.
 
 Advanced Routing
-----------------
+================
 
 Packets have been marked to a certain value in *IPTables*. Now match on that value using policy routing to have those packets delivered locally to *Zorp* instead of forwarding it to the original address, and *Zorp* will connect to a server depending on the policy.
 

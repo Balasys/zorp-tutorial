@@ -345,3 +345,29 @@ of the *Zorp* controller application named ``zorpctl``.
   def instance():
     Service(name='service', proxy_class=HttpProxy)
     Rule(dst_port=80, service='service')
+
+Functional Model
+================
+
+Kernel Module
+-------------
+
+*KZorp* is the kernel module of the *Zorp* application level firewall. The module makes possible to make kernel space decisions about the traffic according to the configured *Zorp* policy. It also provides some extensions to *IPTables* so that you can build your own packet filter ruleset that uses *Zorp* concepts and policy objects.
+
+Rule evaluation
+---------------
+
+*Zorp* communicates the policy to *KZorp* when starting up, so inital policy decisions can be applied to certain traffic in kernel space. As the result of the decision, packets are either dropped or put back to the chain of *IPTables* where the *KZORP* target has been called.
+
+IPTables relation
+-----------------
+
+The *KZorp* kernel and *IPTables* modules allow using certain *Zorp* concepts in packet filter rulesets.
+
+It adds support for the following *IPTables* modules:
+
+* ``zone`` match: you can match on *Zorp* zones (defined in the *Zorp* policy) in your *IPTables* ruleset.
+
+* ``service`` match: matches on either the name or the type of the service that has been selected for the packet based on your *Zorp* policy.
+
+* ``KZORP`` target: handles DAC checks, transparent proxy redirections and generic processing of packets for PFService services (that is, *Zorp* services that process packets on the packet filter level, not in a user-space proxy).
