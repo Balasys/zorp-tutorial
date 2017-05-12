@@ -132,15 +132,15 @@ License
 =======
 
 .. index:: single: licence;GPL
-.. index:: single: licence;LGPL
+.. index:: single: licence;GPL
 .. index:: single: Zorp;Zorp GPL
 .. index:: single: Zorp;Zorp Professional
 .. index:: single: licence;dual-licensin
 
-*Zorp* is not only an open source product, but also a free software as it is licensed under `GPL <http://www.gnu.org/licenses/gpl-2.0.html>`_ and `LGPL <http://www.gnu.org/licenses/lgpl-2.0.html>`_. The reason of the two licenses is the fact that *Zorp* is released in two parts and there is also a kernel module.
+*Zorp* is not only an open source product, but also a free software as it is licensed under `GPL <http://www.gnu.org/licenses/gpl-2.0.html>`_. The reason of the two licenses is the fact that *Zorp* is released in two parts and there is also a kernel module.
 
 * *Zorp GPL* is licensed under `GPL 2.0 <http://www.gnu.org/licenses/gpl-2.0.html>`_
-* *libzorpll* is licensed under `LGPL 2.0 <http://www.gnu.org/licenses/lgpl-2.0.html>`_
+* *libzorpll* is licensed under `GPL 2.0 <http://www.gnu.org/licenses/gpl-2.0.html>`_
 * *kZorp* is licensed under `GPL 2.0 <http://www.gnu.org/licenses/gpl-2.0.html>`_
 
 It must be noted that the *Zorp* is `dual-licensed <http://en.wikipedia.org/wiki/Multi-licensing>`_ by the main developer `BalaSys IT Security <http://www.balasys.hu>`_,  where *Zorp*/*Zorp GPL* is the open source version and *Zorp Professional* is the proprietary one with some extra features and proxies.
