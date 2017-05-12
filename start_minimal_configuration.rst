@@ -28,7 +28,7 @@ It adds support for the following *IPTables* modules:
 Configuration
 =============
 
-The main problem of transparent proxy firewalls is the fact that the traffic does not target the firewall itself, but a host behind the network security device. In a usual case the traffic is forwarded to the originally targeted server, but in case of a firewall the traffic must be delivered locally to the proxy, which will connect to the originally targeted server, or another according to the policy. The divertable packets should be identified somehow in the packet filter rulesets. It can be performed by the means of transparent proxy (`TProxy <http://www.balabit.com/support/community/products/tproxy>`_) kernel module of the kernel.
+The main problem of transparent proxy firewalls is the fact that the traffic does not target the firewall itself, but a host behind the network security device. In a usual case the traffic is forwarded to the originally targeted server, but in case of a firewall the traffic must be delivered locally to the proxy, which will connect to the originally targeted server, or another according to the policy. The divertable packets should be identified somehow in the packet filter rulesets. It can be performed by the means of transparent proxy (`TProxy <https://www.kernel.org/doc/Documentation/networking/tproxy.txt>`_) kernel module of the kernel.
 
   The idea is to identify packets with the destination address matching a local socket on your box, set the packet mark to a certain value, and then match on that value using policy routing to have those packets delivered locally.
 
