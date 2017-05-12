@@ -98,9 +98,9 @@ Downloads
 Sources
 ^^^^^^^
 
-* `Zorp GPL <http://github.com/balabit/zorp>`_, the firewall itself
-* `kZorp <http://github.com/balabit/kzorp>`_, kernel module
-* `libzorpll <http://github.com/balabit/libzorpll>`_, low-level networking library
+* `Zorp GPL <http://github.com/balasys/zorp>`_, the firewall itself
+* `kZorp <http://github.com/balasys/kzorp>`_, kernel module
+* `libzorpll <http://github.com/balasys/libzorpll>`_, low-level networking library
 
 Binaries
 ^^^^^^^^
@@ -121,7 +121,7 @@ Documentation
 ^^^^^^^^^^^^^
 
 * `Zorp GPL Tutorial <http://zorp-gpl-tutorial.readthedocs.org>`_ on ReadTheDocs
-* `Configuration examplesGitHub <http://github.com/balabit/zorp-examples>`_ on GitHub
+* `Configuration examples <http://github.com/balasys/zorp-examples>`_ on GitHub
 
 Evaluate
 ^^^^^^^^
