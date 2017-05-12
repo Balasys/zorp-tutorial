@@ -114,7 +114,7 @@ Support
 Mailing lists
 ^^^^^^^^^^^^^
 
-* Subscribe to the lists directly in `English <https://lists.balabit.hu/mailman/listinfo/zorp>`_ or `Hungarian <https://lists.balabit.hu/mailman/listinfo/zorp>`_
+* Subscribe to the lists directly in `English <https://groups.google.com/d/forum/zorp>`_ or `Hungarian <https://groups.google.com/d/forum/zorp-hu>`_
 * List archives are available at the above URLs
 
 Documentation
